@@ -19,7 +19,6 @@
   display: flex;
   flex: 1;
   align-items: center;
-  border-radius: 24px;
 }
 
 .header__searchInput {
@@ -46,11 +45,21 @@
   color: white;
 }
 
-.header__optionsLineOne {
+.header__optionLineOne {
   font-size: 12px;
 }
 
-.header__optionsLineTwo {
+.header__optionLineTwo {
   font-size: 14px;
   font-weight: 800;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.header__basketCount {
+  margin: 0 10px;
 }
