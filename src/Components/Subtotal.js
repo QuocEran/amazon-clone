@@ -1,7 +1,7 @@
 import React from "react";
 import "./Subtotal.css";
 import CurrencyFormat from "react-currency-format";
-import { useStateValue } from "../Provider/StateProvider";
+import { useStateValue } from "../Store/StateProvider";
 
 function Subtotal() {
   // eslint-disable-next-line no-unused-vars
