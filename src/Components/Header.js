@@ -7,7 +7,7 @@ import { useStateValue } from "../Store/StateProvider";
 
 function Header() {
   // eslint-disable-next-line no-unused-vars
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket }] = useStateValue();
   return (
     <div className="header">
       <Link to="/">

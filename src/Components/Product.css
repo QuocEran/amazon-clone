@@ -27,8 +27,11 @@
   background: #f0c14b;
   border: 1px solid;
   margin-top: 10px;
+  border-radius: 2px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  padding: 2px 5px;
+  cursor: pointer;
 }
 
 .product__price {
