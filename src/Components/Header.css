@@ -38,6 +38,11 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.header__nav > a {
+  text-decoration: none;
+}
+
 .header__options {
   display: flex;
   flex-direction: column;
@@ -50,6 +55,8 @@
 }
 
 .header__optionLineTwo {
+  color: white;
+  text-decoration: none;
   font-size: 14px;
   font-weight: 800;
 }
