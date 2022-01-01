@@ -20,7 +20,7 @@ const promise = loadStripe(
 // App jsx
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
   useEffect(() => {
     // WILL ONLY RUN ONCE WHEN THE COPONENT LOADS
     projectAuth.onAuthStateChanged((authUser) => {
@@ -38,7 +38,7 @@ function App() {
         });
       }
     });
-  }, [dispatch]);
+  }, [user, dispatch]);
 
   return (
     // BEM
