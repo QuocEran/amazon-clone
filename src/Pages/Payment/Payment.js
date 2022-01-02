@@ -7,6 +7,7 @@ import CheckoutProduct from "../../Components/CheckoutProduct";
 import { useStateValue } from "../../Store/StateProvider";
 import "./Payment.css";
 import axios from "../../axios";
+import { projectFirestore } from "../../Configs/firebase";
 function Payment() {
   const history = useHistory();
 
@@ -27,20 +28,24 @@ function Payment() {
   useEffect(() => {
     const getClientSecret = async () => {
       const response = await axios({
-        method: "POST",
+        method: "post",
         // Stripe ex the total in a currencies subunits
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
     };
-
-    getClientSecret();
+    if (basket.length !== 0) {
+      getClientSecret();
+    }
   }, [basket]);
+
+  console.log("THE SECRET IS >>>", clientSecret);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
 
+    // eslint-disable-next-line no-unused-vars
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -48,10 +53,25 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        projectFirestore
+          .collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         // paymentIntent = payment confirmation
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispacth({
+          type: "EMPTY_BASKET",
+        });
 
         history.replace("/orders");
       });

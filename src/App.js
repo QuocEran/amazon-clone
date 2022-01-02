@@ -10,6 +10,7 @@ import { useStateValue } from "./Store/StateProvider";
 import Payment from "./Pages/Payment/Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Pages/Orders/Orders";
 
 //Config Stripe
 
@@ -45,6 +46,10 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
