@@ -1,8 +1,11 @@
+/* eslint-disable object-curly-spacing */
+/* eslint-disable indent */
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
 
 const stripe = require("stripe")(
+  // eslint-disable-next-line max-len
   "sk_test_51KD2V7JzrUp5irn8DNdYFcLH9Q2MnRFKJcqNa8OSaeLyKgvba1Znbpo30DK9cdilxesPifwiRiHPII4s5dKuRlq000YYnYQCNr"
 );
 

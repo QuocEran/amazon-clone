@@ -17,18 +17,18 @@ function Home() {
         <Product
           key="12321341"
           id="12321341"
-          title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-          price={11.96}
+          title="Lenovo IdeaPad 1 Laptop, 14.0 HD (1366 x 768) Display, Intel Celeron, 4GB/64 GB, Intel UHD Graphics 600, Windows 11, Ice Blue"
+          price={285.62}
           rating={5}
-          image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
+          image="https://m.media-amazon.com/images/I/71hhgeQCrOL._AC_SL1500_.jpg"
         />
         <Product
           key="49538094"
           id="49538094"
-          title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
+          title="HP 15-inch Laptop, 11th Generation Intel Core i5-1135G7, Intel Iris Xe Graphics, 8 GB RAM, 256 GB SSD, Windows 11 Home (15-dy2024nr, Natural silver)"
           price={239.0}
           rating={4}
-          image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
+          image="https://m.media-amazon.com/images/I/81I64Ptcd2L._AC_SL1500_.jpg"
         />
       </div>
 
@@ -36,10 +36,10 @@ function Home() {
         <Product
           key="4903850"
           id="4903850"
-          title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
+          title="Fitbit Versa 2 Health and Fitness Smartwatch, Stone/Mist Grey, One Size (S and L)"
           price={199.99}
-          rating={3}
-          image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
+          rating={4}
+          image="https://m.media-amazon.com/images/I/61JzeOC9rsL._AC_SL1500_.jpg"
         />
         <Product
           key="23445930"
@@ -63,10 +63,18 @@ function Home() {
         <Product
           key="90829332"
           id="90829332"
-          title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-          price={1094.98}
+          title="LG 34WN80C-B UltraWide Monitor 34” 21:9 Curved WQHD (3440 x 1440) IPS Display, USB Type-C (60W PD) , sRGB 99% Color Gamut, 3-Side Virtually Borderless Design, Tilt/Height Adjustable Stand - Black"
+          price={549.99}
           rating={4}
-          image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
+          image="https://m.media-amazon.com/images/I/81WBbFOEHwL._AC_SL1500_.jpg"
+        />
+        <Product
+          key="90829232"
+          id="90829232"
+          title="ASUS ProArt Display PA279CV 27” 4K HDR UHD (3840 x 2160) Monitor, IPS, 100% sRGB/Rec. 709, ΔE < 2, USB-C DisplayPort HDMI USB hub, Calman Verified, Eye Care, Tilt Pivot Swivel Height Adjustable"
+          price={482.99}
+          rating={4}
+          image="https://m.media-amazon.com/images/I/81W71VaDIPL._AC_SL1500_.jpg"
         />
       </div>
     </div>
