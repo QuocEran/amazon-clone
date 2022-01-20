@@ -1,8 +1,6 @@
-**Amazon Clone Project - ReactJs
+#Amazon Clone Project - ReactJs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 # Client - ReactJs App 
 In the project directory, you can run the client app:
