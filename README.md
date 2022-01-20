@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-# Client: 
+# Client - ReactJs App 
 In the project directory, you can run the client app:
 
 ### `npm start`
