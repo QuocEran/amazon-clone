@@ -18,7 +18,7 @@ You will also see any lint errors in the console.
 # Server - Firebase Cloud Function (in localhost)
 
 Change the directory to "./funtions", you can run the server app:
-### `npm serve`
+### `npm run serve`
 Web / API server started at localhost:4000
 
 
