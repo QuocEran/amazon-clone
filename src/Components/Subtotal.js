@@ -8,7 +8,15 @@ function Subtotal() {
   const history = useHistory();
 
   // eslint-disable-next-line no-unused-vars
-  const [{ basket }, dispacth] = useStateValue();
+  const [{ basket, user }, dispacth] = useStateValue();
+
+  const handleAuth = () => {
+    if (user) {
+      history.push("/payment");
+    } else {
+      history.push("/login");
+    }
+  };
 
   return (
     <div className="subtotal">
@@ -29,9 +37,7 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button onClick={(e) => history.push("/payment")}>
-        Proceed to Checkout
-      </button>
+      <button onClick={handleAuth}>Proceed to Checkout</button>
     </div>
   );
 }

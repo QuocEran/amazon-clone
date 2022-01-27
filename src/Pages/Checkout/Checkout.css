@@ -8,8 +8,34 @@
   width: 100%;
   margin-bottom: 10px;
 }
+.checkout__left {
+  flex-grow: 0.7;
+}
+.checkout__right {
+  flex-grow: 0.3;
+}
 .checkout__title {
   margin-right: 10px;
   padding: 10px;
   border-bottom: 1px solid lightgray;
+}
+
+@media only screen and (max-width: 769px) {
+  .checkout {
+    flex-wrap: wrap;
+  }
+
+  .checkout__right {
+    margin-top: 10px;
+  }
+
+  .checkout__left,
+  .checkout__right {
+    flex-grow: 1;
+  }
+
+  .checkout__left,
+  .checkout__right > div {
+    margin: auto;
+  }
 }

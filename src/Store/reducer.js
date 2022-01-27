@@ -1,17 +1,14 @@
 export const initialState = {
   basket: [],
   user: null,
+  counter: 0,
+  address: null,
 };
-
 // Selector
 export const getBasketTotal = (basket) =>
-  basket?.reduce(
-    (amount, item) => {
-      return item.price + amount;
-    },
-
-    0
-  );
+  basket?.reduce((amount, item) => {
+    return item.price + amount;
+  }, 0);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -46,6 +43,17 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case "SET_ADDRESS":
+      return {
+        ...state,
+        address: action.address,
+      };
+
+    case "INCREMENT":
+      return {
+        ...state,
+        counter: action.counter + 1,
       };
     default:
       return state;

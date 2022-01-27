@@ -1,34 +1,34 @@
 import React from "react";
-import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { projectAuth } from "../../Configs/firebase";
-function Login() {
+function Register() {
   const history = useHistory();
-
-  const [processing, setProcessing] = useState("");
-
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
+  const [processing, setProcessing] = useState("");
+
+  const register = async (e) => {
     e.preventDefault();
     setProcessing(true);
-    //Firebase login
-    projectAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          setProcessing(false);
-          history.push("/");
-        }
-      })
-      .catch((error) => {
-        setProcessing(false);
-        alert(error.message);
-      });
+    //Firebase register
+    try {
+      const response = await projectAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      if (!response) throw new Error("Could not create a new user");
+      await response.user.updateProfile({ displayName: name });
+      setProcessing(false);
+      history.push("/");
+      return response;
+    } catch (error) {
+      setProcessing(false);
+      alert(error.message);
+    }
   };
-
   return (
     <div className="login">
       <Link to="/">
@@ -40,8 +40,14 @@ function Login() {
       </Link>
 
       <div className="login__container">
-        <h1>Sign Up</h1>
+        <h1>Register</h1>
         <form action="">
+          <h5>Your Name</h5>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <h5>E-mail</h5>
           <input
             type="text"
@@ -54,14 +60,6 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
-            type="submit"
-            className="login__signInButton"
-            onClick={signIn}
-            disabled={processing}
-          >
-            {processing ? <p>Processing...</p> : <p>Sign In</p>}
-          </button>
         </form>
 
         <p>
@@ -69,19 +67,25 @@ function Login() {
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
         </p>
+        <button
+          onClick={register}
+          disabled={processing}
+          className="login__signInButton"
+        >
+          {processing ? (
+            <p>Processing...</p>
+          ) : (
+            <p> Create your Amazon account</p>
+          )}
+        </button>
       </div>
 
       <div className="register__container">
-        <div className="divider">
-          <h5>New to Amazon?</h5>
-        </div>
         {processing ? (
-          <div className="login__registerButton">
-            Create your Amazon account
-          </div>
+          <div className="login__registerButton">Back to Login In</div>
         ) : (
-          <Link to="/register" className="login__registerButton">
-            Create your Amazon account
+          <Link to="/login" className="login__registerButton">
+            Back to Login In
           </Link>
         )}
       </div>
@@ -96,12 +100,10 @@ function Login() {
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">Help</a>
         </div>
-        <div>
-          <span>© 1996-2022, Amazon.com, Inc. or its affiliates</span>
-        </div>
+        <span>© 1996-2022, Amazon.com, Inc. or its affiliates</span>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

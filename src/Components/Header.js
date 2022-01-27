@@ -8,9 +8,13 @@ import { projectAuth } from "../Configs/firebase";
 
 function Header() {
   // eslint-disable-next-line no-unused-vars
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+
   const handleAuth = () => {
     if (user) {
+      dispatch({
+        type: "EMPTY_BASKET",
+      });
       projectAuth.signOut();
     }
   };
@@ -34,7 +38,7 @@ function Header() {
         <Link to={!user && "/login"}>
           <div onClick={handleAuth} className="header__options">
             <span className="header__optionLineOne">
-              Hello {user ? user.email : "Guest"}
+              Hello {user ? user.displayName : "Guest"}
             </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "Sign in"}

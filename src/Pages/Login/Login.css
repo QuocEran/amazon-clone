@@ -1,6 +1,6 @@
 .login {
   background-color: white;
-  height: 100vh;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +23,7 @@
   border-radius: 5px;
   border: 1px solid lightgray;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .login__container > h1 {
@@ -34,7 +35,14 @@
   height: 30px;
   margin-bottom: 10px;
   background-color: white;
+  border: 1px solid #c7c4c4;
   width: 98%;
+  border-radius: 2px;
+}
+
+.login__container > form > input:focus {
+  box-shadow: 0 0 1px 1px #f0c14b;
+  outline: none;
 }
 
 .login__container > p {
@@ -43,22 +51,136 @@
 }
 
 .login__signInButton {
-  background-color: #f0c14b;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
   border-radius: 2px;
   height: 30px;
   width: 100%;
   cursor: pointer;
   border: 1px solid;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13.3333px;
+  text-decoration: none;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
+}
+.login__signInButton:hover {
+  background: linear-gradient(to bottom, #f5d893, #f0c14b);
+}
+/* register */
+.register__container {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+.divider {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  padding-top: 1px;
+  margin-bottom: 14px;
+  line-height: 0;
+}
+.divider h5 {
+  line-height: 1;
+  font-size: 12px;
+  color: #767676;
+  font-weight: 400;
+  z-index: 2;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 8px 0 8px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+.divider::after {
+  content: "";
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  height: 1px;
+  border-top: 1px solid #e7e7e7;
+  top: 50%;
+  margin-top: -1;
+  display: block;
+  z-index: 1;
 }
 
 .login__registerButton {
   border-radius: 2px;
   height: 30px;
   width: 100%;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
   cursor: pointer;
   border: 1px solid;
   margin-top: 10px;
   border-color: darkgray;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13.3333px;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 60%) inset;
+}
+
+.login__registerButton:hover {
+  background: linear-gradient(to bottom, #e9eeee, #e7e9ec);
+}
+
+/* Footer */
+.login__footer__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  height: 120px;
+  margin-top: 26px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+.login__footer__cover {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 44px;
+  margin-bottom: -18px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  z-index: 0;
+  zoom: 1;
+}
+
+.login__footer__cover::after {
+  display: block;
+  width: 100%;
+  position: absolute;
+  height: 100px;
+  background-color: transparent;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+  z-index: 1;
+  content: "";
+}
+.login__footer__link {
+  z-index: 99;
+  display: flex;
+  gap: 40px;
+  font-size: 10px;
+  margin-bottom: 10px;
 }

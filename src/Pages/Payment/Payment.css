@@ -33,6 +33,13 @@
   flex: 0.8;
 }
 
+.payment__address > input {
+  width: 100%;
+  outline: none;
+  border: 0;
+  font-size: 16px;
+}
+
 .payment__details > form {
   max-width: 400px;
 }
@@ -51,4 +58,12 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  cursor: pointer;
+}
+
+.payment__details > form > div > button:disabled {
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  cursor: unset;
+  border: 1px solid;
+  border-color: darkgray;
 }

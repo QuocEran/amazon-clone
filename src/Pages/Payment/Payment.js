@@ -11,7 +11,7 @@ import { projectFirestore } from "../../Configs/firebase";
 function Payment() {
   const history = useHistory();
 
-  const [{ basket, user }, dispacth] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -26,6 +26,9 @@ function Payment() {
   const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
+    if (basket.length === 0) {
+      setDisabled(true);
+    }
     const getClientSecret = async () => {
       const response = await axios({
         method: "post",
@@ -69,7 +72,7 @@ function Payment() {
         setError(null);
         setProcessing(false);
 
-        dispacth({
+        dispatch({
           type: "EMPTY_BASKET",
         });
 
@@ -80,8 +83,12 @@ function Payment() {
   const handleChange = (event) => {
     // Listen for changes in the CardElement property
     // display any errors as the customer types their card payment__details
-    setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
+    if (basket.length === 0) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+      setError(event.error ? event.error.message : "");
+    }
   };
 
   return (
@@ -100,9 +107,10 @@ function Payment() {
             <h3>Delivery Address</h3>
           </div>
           <div className="payment__address">
-            <p>{user?.email}</p>
-            <p>2.27 CC6, Xo Viet Nghe Tinh</p>
-            <p>Binh Thanh, TP.HCM</p>
+            <input
+              type="text"
+              placeholder="2.27 CC6, Xo Viet Nghe Tinh, Binh Thanh, TP.HCM"
+            />
           </div>
         </div>
         {/* <PaymentSection /> - item */}

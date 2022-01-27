@@ -1,0 +1,48 @@
+/* Footer */
+.footer__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  margin-top: 26px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+.footer__cover {
+  display: block;
+  height: 44px;
+  width: 100%;
+  margin-bottom: -20px;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  z-index: 0;
+  zoom: 1;
+}
+
+.footer__cover::after {
+  display: block;
+  width: 100%;
+  position: absolute;
+  height: 44px;
+  background-color: transparent;
+  background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0), #fff);
+  z-index: 1;
+  content: "";
+}
+.footer__link {
+  z-index: 99;
+  display: flex;
+  gap: 40px;
+  font-size: 10px;
+}
